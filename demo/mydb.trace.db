@@ -1,0 +1,9 @@
+2016-08-07 22:57:32 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CONTACTS[*] SELECT * FROM OCTOPUS_PROPERTIES"; expected "COMMIT, CREATE, CALL, CHECKPOINT, COMMENT, {"; SQL statement:
+CONTACTS SELECT * FROM OCTOPUS_PROPERTIES [42001-192]
+2016-08-07 22:58:58 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE OCTOPUSPROPERTIES ( OID IDENTITY, KEY VARCHAR(50) NOT NULL, VALUE VARCHAR(100) NOT NULL, DRCVALUE VARCHAR(100)  [*]"; expected "FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+create table octopusproperties ( oid identity, key varChar(50) not null, value varChar(100) not null, drcvalue varChar(100)  [42001-192]
+2016-08-07 23:00:53 jdbc[12]: exception
+org.h2.jdbc.JdbcSQLException: Table "OCTOPUSPROPERTIES" already exists; SQL statement:
+create table octopusproperties ( oid identity, key varChar(50) not null, value varChar(100) not null, drcvalue varChar(100))  [42101-192]
