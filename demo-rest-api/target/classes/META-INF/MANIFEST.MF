@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Implementation-Title: demo-rest-api
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: kasimsert
+Implementation-Vendor-Id: smg
+Build-Jdk: 1.8.0_20
+Implementation-URL: http://projects.spring.io/spring-boot/com.smg.demo
+ .core/
+Created-By: Maven Integration for Eclipse
+Implementation-Vendor: Pivotal Software, Inc.
+
