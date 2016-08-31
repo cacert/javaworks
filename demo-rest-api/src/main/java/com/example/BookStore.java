@@ -25,7 +25,7 @@ public interface BookStore {
     @GET
     @Path("/{id}")
     @Consumes("*/*")
-    List<Book> getBook(@PathParam("id") @WebParam(name = "id") Long id) throws Exception;
+    Book getBook(@PathParam("id") @WebParam(name = "id") Long id) throws Exception;
 
     @POST
     @Path("/books")

@@ -1,5 +1,6 @@
 package com.example;
 
+import org.apache.camel.component.servlet.CamelHttpTransportServlet;
 import org.apache.cxf.Bus;
 import org.apache.cxf.bus.spring.SpringBus;
 import org.apache.cxf.jaxrs.swagger.Swagger2Feature;
@@ -21,6 +22,15 @@ public class TestConfig {
 		return servletRegistrationBean;
 	}
 	
+	@Bean
+	public ServletRegistrationBean camelServlet() {
+		CamelHttpTransportServlet camelServlet = new CamelHttpTransportServlet();
+		ServletRegistrationBean servletRegistrationBean = new ServletRegistrationBean(camelServlet, "/camel/*");
+		servletRegistrationBean.setName("CamelServlet");
+		servletRegistrationBean.setLoadOnStartup(1);
+		return servletRegistrationBean;
+	}
+	
 	@Bean(name=Bus.DEFAULT_BUS_ID)
     public SpringBus springBus() {      
         return new SpringBus();
@@ -34,7 +44,7 @@ public class TestConfig {
 	@Bean
 	public org.apache.cxf.jaxrs.swagger.Swagger2Feature swagger2Feature(){
 		Swagger2Feature feature = new org.apache.cxf.jaxrs.swagger.Swagger2Feature();
-		feature.setBasePath("/swagger-api");
+		feature.setBasePath("/api/rest/");
 		return feature;
 	}
 

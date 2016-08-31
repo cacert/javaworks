@@ -25,13 +25,13 @@ public class TestRoute extends RouteBuilder{
 	@Autowired
 	private CamelContext context;
 	
-	private static final String SOAP_ENDPOINT_URI = "cxf:///servlet/soap1"
+	private static final String SOAP_ENDPOINT_URI = "cxf:///soap1"
 		        + "?serviceClass=com.example.BookStore";
 
-	private static final String REST_ENDPOINT_URI = "cxfrs:///servlet/rest"
+	private static final String REST_ENDPOINT_URI = "cxfrs:///rest"
 		        + "?resourceClasses=com.example.BookStore,com.example.CustomerOperations&providers=#jsonProvider";
 	
-	private static final String SOAP_ENDPOINT_URI_CUSTOMER = "cxf:///servlet/soap2"
+	private static final String SOAP_ENDPOINT_URI_CUSTOMER = "cxf:///soap2"
 	        + "?serviceClass=com.example.CustomerOperations";
 
 	
@@ -41,6 +41,7 @@ public class TestRoute extends RouteBuilder{
 		System.err.println(swagger2Feature);
 		CxfRsEndpoint endpoint = (CxfRsEndpoint)context.getEndpoint(REST_ENDPOINT_URI);
 		
+		swagger2Feature.setRunAsFilter(true);
 		endpoint.getFeatures().add(swagger2Feature);
 		
 		from(SOAP_ENDPOINT_URI)
@@ -70,7 +71,7 @@ public class TestRoute extends RouteBuilder{
 				List<Book> list = new ArrayList<>();
 				list.add(b);
 				list.add(b2);
-				exchange.getIn().setBody(list);
+				exchange.getIn().setBody(b);
 			}
 		})	;
 //		.marshal()
